@@ -1,0 +1,20 @@
+# Vulnerability Story Teller Requirements
+# Note: This tool requires wkhtmltopdf to be installed at the system level for PDF generation
+# Install it from https://wkhtmltopdf.org/downloads.html or via your system's package manager
+# e.g., apt-get install wkhtmltopdf (Debian/Ubuntu), brew install wkhtmltopdf (macOS)
+
+# Core dependencies
+requests>=2.31.0
+flask>=2.0.1
+jinja2>=3.0.1
+pdfkit>=1.0.0
+markdown2>=2.4.0
+xmltodict>=0.13.0
+tenacity>=8.0.1
+beautifulsoup4>=4.10.0
+
+# Optional dependencies for development
+pytest>=7.0.0
+black>=22.1.0
+flake8>=4.0.1
+

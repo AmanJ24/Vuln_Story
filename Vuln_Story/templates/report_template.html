@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Report</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #24292e;
+            color: white;
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 30px;
+        }
+        
+        .report-title {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+        }
+        
+        .report-subtitle {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        /* Executive summary */
+        .exec-summary {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0366d6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Vulnerability card */
+        .vuln-card {
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .vuln-header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .vuln-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .vuln-body {
+            padding: 20px;
+        }
+        
+        /* Severity badge */
+        .severity-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: white;
+        }
+        
+        .critical {
+            background-color: #d73a49;
+            border-top: 5px solid #d73a49;
+        }
+        
+        .high {
+            background-color: #f66a0a;
+            border-top: 5px solid #f66a0a;
+        }
+        
+        .medium {
+            background-color: #e36209;
+            border-top: 5px solid #e36209;
+        }
+        
+        .low {
+            background-color: #f9c513;
+            border-top: 5px solid #f9c513;
+            color: #24292e;
+        }
+        
+        .information {
+            background-color: #2188ff;
+            border-top: 5px solid #2188ff;
+        }
+        
+        /* Card with critical severity */
+        .vuln-card.critical {
+            border-top: 5px solid #d73a49;
+        }
+        
+        /* Card with high severity */
+        .vuln-card.high {
+            border-top: 5px solid #f66a0a;
+        }
+        
+        /* Card with medium severity */
+        .vuln-card.medium {
+            border-top: 5px solid #e36209;
+        }
+        
+        /* Card with low severity */
+        .vuln-card.low {
+            border-top: 5px solid #f9c513;
+        }
+        
+        /* Card with info severity */
+        .vuln-card.information {
+            border-top: 5px solid #2188ff;
+        }
+        
+        /* Detail sections */
+        .detail-section {
+            margin-bottom: 20px;
+        }
+        
+        .detail-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #24292e;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .detail-content {
+            font-size: 16px;
+        }
+        
+        /* Story section formatting */
+        .story-section {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+        
+        .story-header {
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #24292e;
+        }
+        
+        /* URL and parameter display */
+        .url-display {
+            font-family: monospace;
+            background-color: #f6f8fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        /* Technical details */
+        .tech-details {
+            font-family: monospace;
+            background-color: #f6f8fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #6a737d;
+            font-size: 14px;
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .vuln-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .severity-badge {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="report-title">📊 Vulnerability Assessment Report</h1>
+            <p class="report-subtitle">Generated on {{ report_date }} by Vulnerability Story Teller</p>
+        </header>
+        
+        <!-- Executive Summary -->
+        <div class="exec-summary">
+            <h2>Executive Summary</h2>
+            <p>This report contains {{ vulns|length }} vulnerability findings discovered during security testing. Each vulnerability is explained with a detailed narrative to help understand its impact and remediation steps.</p>
+            
+            <!-- Summary statistics by severity -->
+            <div class="severity-summary">
+                <p>
+                    <strong>Findings by Severity:</strong>
+                    {% set severity_counts = {'Critical': 0, 'High': 0, 'Medium': 0, 'Low': 0, 'Information': 0} %}
+                    {% for item in vulns %}
+                        {% if item.severity|lower == 'critical' %}
+                            {% set _ = severity_counts.update({'Critical': severity_counts['Critical'] + 1}) %}
+                        {% elif item.severity|lower == 'high' %}
+                            {% set _ = severity_counts.update({'High': severity_counts['High'] + 1}) %}
+                        {% elif item.severity|lower == 'medium' %}
+                            {% set _ = severity_counts.update({'Medium': severity_counts['Medium'] + 1}) %}
+                        {% elif item.severity|lower == 'low' %}
+                            {% set _ = severity_counts.update({'Low': severity_counts['Low'] + 1}) %}
+                        {% else %}
+                            {% set _ = severity_counts.update({'Information': severity_counts['Information'] + 1}) %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for severity, count in severity_counts.items() %}
+                        {% if count > 0 %}
+                            <span class="severity-badge {{ severity|lower }}">{{ severity }}: {{ count }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        
+        <!-- Vulnerabilities -->
+        {% for item in vulns %}
+            <div class="vuln-card {{ item.severity|lower }}">
+                <div class="vuln-header">
+                    <h2 class="vuln-title">{{ item.issue }}</h2>
+                    <span class="severity-badge {{ item.severity|lower }}">{{ item.severity }}</span>
+                </div>
+                
+                <div class="vuln-body">
+                    <!-- Basic vulnerability information -->
+                    <div class="detail-section">
+                        <h3 class="detail-title">Affected URL</h3>
+                        <div class="url-display">{{ item.url }}</div>
+                    </div>
+                    
+                    {% if item.parameter != 'N/A' %}
+                    <div class="detail-section">
+                        <h3 class="detail-title">Parameter</h3>
+                        <div class="url-display">{{ item.parameter }}</div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- AI-generated story -->
+                    <div class="detail-section">
+                        <h3 class="detail-title">🔍 Vulnerability Explanation</h3>
+                        <div class="story-section">
+                            {{ item.story|safe }}
+                        </div>
+                    </div>
+                    
+                    <!-- Technical details -->
+                    <div class="detail-section">
+                        <h3 class="detail-title">Technical Description</h3>
+                        <div class="detail-content">
+                            {{ item.description|safe }}
+                        </div>
+                    </div>
+                    
+                    <!-- Request & Response (only if available and not empty) -->
+                    {% if item.request and item.request|trim %}
+                    <div class="detail-section">
+                        <h3 class="detail-title">HTTP Request</h3>
+                        <pre class="tech-details">{{ item.request }}</pre>
+                    </div>
+                    {% endif %}
+                    
+                    {% if item.response and item.response|trim %}
+                    <div class="detail-section">
+                        <h3 class="detail-title">HTTP Response</h3>
+                        <pre class="tech-details">{{ item.response }}</pre>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        
+        <!-- Footer -->
+        <footer>
+            <p>Report generated by Vulnerability Story Teller | Using OpenAI for vulnerability explanation</p>
+        </footer>
+    </div>
+</body>
+</html>
+
