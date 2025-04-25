@@ -233,13 +233,13 @@ Special thanks to:
 
 ## 📬 Connect & Support
 
-- Submit an Issue: [GitHub Issues](https://github.com/amangupta0709/VULN_STORY_TELLER/issues)
-- Contact: amangupta0709@gmail.com
+- Submit an Issue: [GitHub Issues](https://github.com/AmanJ24/Vuln_Story/issues)
+- Contact: amanjangir947@gmail.com
 
 ---
 
 <div align="center">
-Made with ❤️ by Aman Gupta
+Made with ❤️ by Aman
 
 ⭐ Star this repository if you find it helpful!
 </div>
