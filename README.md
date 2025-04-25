@@ -4,7 +4,6 @@
 
 ![Version](https://img.shields.io/badge/version-1.0-blue)
 ![Python](https://img.shields.io/badge/python-3.11+-blue)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 </div>
 
@@ -54,8 +53,8 @@ Before you begin, ensure you have the following:
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/amangupta0709/VULN_STORY_TELLER.git
-cd VULN_STORY_TELLER
+git clone https://github.com/AmanJ24/Vuln_Story.git
+cd Vuln_Story
 ```
 
 ### 2️⃣ Set up Virtual Environment
