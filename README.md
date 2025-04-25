@@ -8,14 +8,12 @@
 
 </div>
 
-🚀 A powerful tool that transforms technical vulnerability scan results into human-readable reports with AI-powered explanations. Vuln_Story parses Burp Suite XML outputs and uses the AWA LLM API to generate comprehensive vulnerability explanations, producing professional HTML and PDF reports for developers and security teams.
-
-![Demo GIF Placeholder](path/to/demo.gif)
+🚀 A powerful tool that transforms technical vulnerability scan results into human-readable reports with AI-powered explanations. Vuln_Story parses Burp Suite XML outputs and uses the AWAN LLM API to generate comprehensive vulnerability explanations, producing professional HTML and PDF reports for developers and security teams.
 
 ## ✨ Features
 
 🤖 **AI-Powered Explanations**
-- Generates clear, structured explanations for each vulnerability using AWA LLM
+- Generates clear, structured explanations for each vulnerability using AWAN LLM
 - Converts technical findings into comprehensible stories
 
 📄 **Multiple Input Formats**
@@ -47,7 +45,7 @@
 Before you begin, ensure you have the following:
 
 ✅ Python 3.11 or higher installed
-✅ AWA LLM API key 
+✅ AWAN LLM API key 
 ✅ `wkhtmltopdf` installed for PDF generation
 ✅ Access to a terminal or command prompt
 ✅ Basic familiarity with command line operations
@@ -109,22 +107,22 @@ Transform your Burp Suite XML reports into detailed vulnerability stories:
 
 ```bash
 # Generate both HTML and PDF reports
-python Vuln_Story/main.py -i path/to/burp_scan.xml -o reports -f both
+python main.py -i path/to/burp_scan.xml -o reports -f both
 
 # Generate only HTML report
-python Vuln_Story/main.py -i path/to/burp_scan.xml -f html
+python main.py -i path/to/burp_scan.xml -f html
 
 # Generate only PDF report
-python Vuln_Story/main.py -i path/to/burp_scan.xml -f pdf
+python main.py -i path/to/burp_scan.xml -f pdf
 
-# Use a specific AWA LLM model
-python Vuln_Story/main.py -i path/to/burp_scan.xml --model "Meta-Llama-3-8B-Instruct"
+# Use a specific AWAN LLM model
+python main.py -i path/to/burp_scan.xml --model "Meta-Llama-3-8B-Instruct"
 
-# Provide AWA API key directly
-python Vuln_Story/main.py -i path/to/burp_scan.xml --api-key "your-api-key-here"
+# Provide AWAN API key directly
+python main.py -i path/to/burp_scan.xml --api-key "your-api-key-here"
 
 # Enable debug logging
-python Vuln_Story/main.py -i path/to/burp_scan.xml --debug
+python main.py -i path/to/burp_scan.xml --debug
 ```
 
 ### 🌐 Web Interface
@@ -133,13 +131,13 @@ Launch the interactive web interface:
 
 ```bash
 # Default Configuration (Port 5000)
-python Vuln_Story/main.py -m web
+python main.py -m web
 
 # Custom Port and Network Access
-python Vuln_Story/main.py -m web -p 8080 --host 0.0.0.0
+python main.py -m web -p 8080 --host 0.0.0.0
 
 # Debug Mode
-python Vuln_Story/main.py -m web --debug
+python main.py -m web --debug
 ```
 
 #### 📝 Using the Web Interface
@@ -187,15 +185,15 @@ Your generated report will include comprehensive sections for each vulnerability
 | `-f, --format` | Output report format(s) (`html`, `pdf`, or `both`) | `both` |
 | `-p, --port` | Port to run the web server on (web mode only) | `5000` |
 | `--host` | Host address to bind the web server to (web mode only) | `127.0.0.1` |
-| `--api-key` | AWA LLM API key | Uses environment variable if not specified |
-| `--model` | AWA LLM model to use | `Meta-Llama-3-8B-Instruct` |
+| `--api-key` | AWAN LLM API key | Uses environment variable if not specified |
+| `--model` | AWAN LLM model to use | `Meta-Llama-3-8B-Instruct` |
 | `--debug` | Enable debug logging for more detailed output | Disabled by default |
 
 ### 🔐 Environment Variables
 
 | Variable | Description |
 |----------|-------------|
-| `AWA_API_KEY` | Your AWA LLM API key (alternative to --api-key) |
+| `AWA_API_KEY` | Your AWAN LLM API key (alternative to --api-key) |
 
 ## 🤝 Contributing
 
@@ -230,7 +228,7 @@ This project is pending license selection. Check back soon for updates.
 ## 🙏 Acknowledgments
 
 Special thanks to:
-- 🤖 AWA LLM API Team for their powerful AI capabilities
+- 🤖 AWAN LLM API Team for their powerful AI capabilities
 - 🛡️ PortSwigger for Burp Suite
 - 👥 All our amazing contributors
 
